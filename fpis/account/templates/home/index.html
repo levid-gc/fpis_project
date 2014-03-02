@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>指纹考勤系统</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{ STATIC_URL }}bootstrap/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <style type="text/css">
+        /* GLOBAL STYLES
+        -------------------------------------------------- */
+        /* Padding below the footer and lighter body text */
+
+        body {
+            padding-bottom: 40px;
+            color: #5a5a5a;
+        }
+
+        /* CUSTOMIZE THE NAVBAR
+        -------------------------------------------------- */
+
+        /* Special class on .container surrounding .navbar, used for positioning it into place. */
+        .navbar-wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 20;
+        }
+
+        /* Flip around the padding for proper display in narrow viewports */
+        .navbar-wrapper .container {
+            padding-left: 0;
+            padding-right: 0;
+        }
+        .navbar-wrapper .navbar {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+
+
+        /* CUSTOMIZE THE CAROUSEL
+        -------------------------------------------------- */
+
+        /* Carousel base class */
+        .carousel {
+            height: 500px;
+            margin-bottom: 60px;
+        }
+        /* Since positioning the image, we need to help out the caption */
+        .carousel-caption {
+            z-index: 10;
+        }
+
+        /* Declare heights because of positioning of img element */
+        .carousel .item {
+            height: 500px;
+            background-color: #777;
+        }
+        .carousel-inner > .item > img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            min-width: 100%;
+            height: 500px;
+        }
+
+
+
+        /* MARKETING CONTENT
+        -------------------------------------------------- */
+
+        /* Pad the edges of the mobile views a bit */
+        .marketing {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+
+        /* Center align the text within the three columns below the carousel */
+        .marketing .col-lg-4 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .marketing h2 {
+            font-weight: normal;
+        }
+        .marketing .col-lg-4 p {
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+
+
+        /* Featurettes
+        ------------------------- */
+
+        .featurette-divider {
+            margin: 80px 0; /* Space out the Bootstrap <hr> more */
+        }
+
+        /* Thin out the marketing headings */
+        .featurette-heading {
+            font-weight: 300;
+            line-height: 1;
+            letter-spacing: -1px;
+        }
+
+
+
+        /* RESPONSIVE CSS
+        -------------------------------------------------- */
+
+        @media (min-width: 768px) {
+
+          /* Remove the edge padding needed for mobile */
+          .marketing {
+            padding-left: 0;
+            padding-right: 0;
+          }
+
+          /* Navbar positioning foo */
+          .navbar-wrapper {
+            margin-top: 20px;
+          }
+          .navbar-wrapper .container {
+            padding-left:  15px;
+            padding-right: 15px;
+          }
+          .navbar-wrapper .navbar {
+            padding-left:  0;
+            padding-right: 0;
+          }
+
+          /* The navbar becomes detached from the top, so we round the corners */
+          .navbar-wrapper .navbar {
+            border-radius: 4px;
+          }
+
+          /* Bump up size of carousel content */
+          .carousel-caption p {
+            margin-bottom: 20px;
+            font-size: 21px;
+            line-height: 1.4;
+          }
+
+          .featurette-heading {
+            font-size: 50px;
+          }
+
+        }
+
+        @media (min-width: 992px) {
+          .featurette-heading {
+            margin-top: 120px;
+          }
+        }
+    </style>
+    </head>
+
+    <body>
+        <div class="navbar-wrapper">
+            <div class="container">
+
+                <div class="navbar navbar-inverse navbar-static-top" role="navigation">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand" href="#">指纹考勤系统</a>
+                        </div>
+
+                        <div class="navbar-collapse collapse">
+                            <ul class="nav navbar-nav">
+                                <li class="active"><a href="#">主页</a></li>
+                                <li><a href="#about">关于</a></li>
+                                <li><a href="#contact" data-toggle="modal" target="#contact">联系我们</a></li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="contact" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">联系我们</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p><a href="mailto:levid.gc@gmail.com"><i class="glyphicon glyphicon-envelope"></i> levid.gc@gmail.com</a> </p>
+                        <p><a href="#"><i class="glyphicon glyphicon-phone"></i> +86 15651751921</a></p>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
+
+        <!-- Carousel
+        ================================================== -->
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+            </ol>
+
+            <div class="carousel-inner">
+                <div class="item active">
+                    <img src="{{ STATIC_URL }}images/home/slide-01.jpg" alt="First slide">
+                    <div class="container">
+                        <div class="carousel-caption">
+                            <h1>全新界面</h1>
+                            <p>抛弃过去的老旧，带给您最好的体验<br />愿您在新的一天享受工作的乐趣！</p>
+                            <p><a class="btn btn-lg btn-primary" href="{% url 'login' %}" role="button">立即登录</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <img src="{{ STATIC_URL }}images/home/slide-02.jpg" alt="Second slide">
+                    <div class="container">
+                        <div class="carousel-caption">
+                            <h1>Another example headline.</h1>
+                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                            <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <img src="{{ STATIC_URL }}images/home/slide-03.jpg" alt="Third slide">
+                    <div class="container">
+                        <div class="carousel-caption">
+                            <h1>One more for good measure.</h1>
+                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                            <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+            <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+        </div><!-- /.carousel -->
+
+
+
+        <!-- Marketing messaging and featurettes
+        ================================================== -->
+        <!-- Wrap the rest of the page in another container to center all the content. -->
+
+        <div class="container marketing">
+
+            <!-- Three columns of text below the carousel -->
+            <div class="row">
+                <div class="col-lg-6">
+                    <img class="img-circle" src="{{ STATIC_URL }}images/home/nuist.png" alt="Generic placeholder image">
+                    <h2>南京信息工程大学</h2>
+                    <p>南京信息工程大学前身是有“中国气象人才摇篮”美誉的南京气象学院，始建于1960年，1978年被确定为全国重点大学，2004年更名为南京信息工程大学，是江苏省人民政府、教育部和中国气象局三方共建的全国重点高校，是江苏省重点建设大学，教育部本科教学工作水平评估优秀学校，具有完整的学士、硕士、博士教育培养体系，并设有博士后科研流动站。</p>
+                    <p><a class="btn btn-default" href="http://www.nuist.edu.cn/newindex/" role="button" target="_blank">更多 &raquo;</a></p>
+                </div><!-- /.col-lg-4 -->
+                <div class="col-lg-6">
+                    <img class="img-responsive" src="{{ STATIC_URL }}images/home/jr.png" alt="Generic placeholder image">
+                    <h2>计算机与软件学院</h2>
+                    <p>计算机与软件学院的前身是创建于1987年的南京气象学院计算机软件教研室，1993年成立计算机科学与信息工程系；2002年初，计算机科学与信息工程系划分为计算机科学与技术系、信息工程系；2006年以计算机科学与技术系为基础成立计算机与软件学院。目前学院有计算机科学与技术系、软件技术与工程系、网络技术与工程系三个系。</p>
+                    <p><a class="btn btn-default" href="http://cs.nuist.edu.cn/index.action" role="button" target="_blank">更多 &raquo;</a></p>
+                </div><!-- /.col-lg-4 -->
+                <!--
+                <div class="col-lg-4">
+                    <img class="img-circle" data-src="holder.js/140x140" alt="Generic placeholder image">
+                    <h2>Heading</h2>
+                    <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+                    <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+                </div><!-- /.col-lg-4 -->
+
+            </div><!-- /.row -->
+
+
+            <!-- START THE FEATURETTES -->
+
+            <hr class="featurette-divider">
+
+            <div class="row featurette">
+                <div class="col-md-7">
+                    <h2 class="featurette-heading">Chrome <span class="text-muted">高速，简约</span></h2>
+                    <p class="lead">Chrome 浏览器追求的是全方位的高速体验，它可以快速地从桌面上启动，并能迅速加载网页，而在运行复杂的网络应用时更是迅雷不及掩耳。不仅能够让您控制自己的隐私信息，同时还能帮助保护您在网上共享的信息。</p>
+                    <p><a class="btn btn-default" href="http://www.google.cn/intl/zh-CN/chrome/" role="button" target="_blank">下载 &raquo;</a></p>
+                </div>
+                <div class="col-md-5">
+                    <img class="featurette-image img-responsive" src="{{ STATIC_URL }}images/home/browser-icon-chrome.png" alt="Generic placeholder image">
+                </div>
+            </div>
+
+            <hr class="featurette-divider">
+
+            <div class="row featurette">
+                <div class="col-md-5">
+                    <img class="featurette-image img-responsive" src="{{ STATIC_URL }}images/home/browser-icon-firefox.png" alt="Generic placeholder image">
+                </div>
+                <div class="col-md-7">
+                    <h2 class="featurette-heading">Firefox <span class="text-muted">与众不同的设计</span></h2>
+                    <p class="lead">安全性高，稳定性好；运行速度快，占用资源少；更快的启动速度，高速的图形渲染引擎，更加增进的页面加载速度，使用最新版 Firefox 你会立刻感受到我们在性能上的显著提升。</p>
+                    <p><a class="btn btn-default" href="http://www.firefox.com" role="button" target="_blank">下载 &raquo;</a></p>
+                </div>
+            </div>
+
+            <hr class="featurette-divider">
+
+            <!-- /END THE FEATURETTES -->
+
+
+            <!-- FOOTER -->
+            <footer>
+                <p class="pull-right"><a href="#">回到首部</a></p>
+                <p>&copy; 2014 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+            </footer>
+
+        </div><!-- /.container -->
+
+
+        <!-- Bootstrap core JavaScript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="{{ STATIC_URL }}js/kendo/jquery.min.js"></script>
+        <script src="{{ STATIC_URL }}bootstrap/js/bootstrap.js"></script>
+        <script src="{{ STATIC_URL }}bootstrap/js/docs.min.js"></script>
+    </body>
+</html>

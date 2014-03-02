@@ -1,0 +1,14 @@
+{% block content %}
+    <h1>Leave a suggestion here</h1>
+    {% if message %}
+        {{ message }}
+    {% endif %}
+
+    <div>
+        <form action="/suggestion/" method="post">
+            {% csrf_token %}
+            {{ form.as_p}}
+            <input type="submit" value="Submit Feedback" />
+        </form>
+    </div>
+{% endblock %}

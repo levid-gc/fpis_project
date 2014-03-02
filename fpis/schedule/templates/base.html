@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        {% block title %} {% endblock %}
+        <!-- Bootstrap core CSS -->
+        <link href="{{ STATIC_URL }}bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <style type="text/css">
+            html, body {
+                height: 100%;
+                width: 100%;
+                margin: 0;
+                padding: 0;
+                background: url("{{ STATIC_URL }}images/home/white_wall_hash.png") repeat scroll 0 0 #E5E5E5;
+            }
+
+
+
+            .head-wrap{
+                padding: 10px;
+            }
+
+            .content-wrap {
+                height: 100%;
+                display: -webkit-box;
+                -webkit-box-align: center;
+                -webkit-box-pack: center;
+                overflow: auto;
+                margin-top: 20px;
+
+            }
+
+            .main {
+                width: 600px;
+            }
+            .info {
+                margin-bottom: 20px;
+                font-size: 21px;
+                line-height: 40px;
+                color: #333;
+                border: 0;
+                border-bottom: 1px solid #e5e5e5;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="head-wrap">
+            <h5>当前位置: {% block nav %}{% endblock %}</h5>
+            <hr />
+        </div>
+
+        {% block content %}
+        {% endblock %}
+        <div class="container">
+        <div class="content-wrap">
+            <form class="main form-horizontal" onsubmit="return check()" action="main/active"
+            onsubmit="return check();">
+                    <div class="form-group">
+                        <label class="control-label col-sm-offset-1 col-sm-2">课程名称</label>
+                        <div class="col-sm-6">
+                            <input id="pwd" name="pwd" type="password" placeholder="必填" class="form-control"
+                                required onchange="checkPasswords()">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-offset-1 col-sm-2">周次</label>
+                        <div class="col-sm-6">
+                            <input id="pwd1" name="pwd1" type="password" placeholder="必填项" class="form-control"
+                                required onchange="checkPasswords()">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-offset-1 col-sm-2">节次</label>
+                        <div class="col-sm-6">
+                            <input name="dept" type="text" placeholder="必填项，单位全称" class="form-control" required title="邮箱正确格式：xxx@xxx.xxx">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-sm-offset-1 col-sm-2">星期</label>
+                        <div class="col-sm-6">
+                            <input name="name" type="text" placeholder="必填项，实名" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-offset-1 col-sm-2">时间</label>
+                        <div class="col-sm-3">
+                            <input name="tel" type="text" placeholder="必填项" class="form-control" required>
+                        </div>
+
+                        <div class="col-sm-3">
+                            <input name="tel" type="text" placeholder="必填项" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-offset-1 col-sm-2">地点</label>
+                        <div class="col-sm-6">
+                            <input name="name" type="text" placeholder="必填项，实名" class="form-control" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-offset-6 col-sm-3">
+
+                            <button type="submit" class="btn btn-default" id="ok">取 消</button>
+                            <button type="button" class="btn btn-primary" >保 存</button>
+                            </div>
+
+
+                    </div>
+            </form>
+            </div>
+    </div>
+    <script>
+        function checkPasswords() {
+            var passl = document.getElementById("pwd");
+            var pass2 = document.getElementById("pwd1");
+            if (passl.value != pass2.value)
+                passl.setCustomValidity("两次密码必须输入一致！");
+            else
+                passl.setCustomValidity('');
+        }
+
+        function check() {
+            document.getElementById('ok').disabled = 'disabled';
+        }
+    </script>
+
+
+        <!-- Bootstrap core JavaScript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="{{ STATIC_URL }}bootstrap/js/jquery-1.11.0.min.js"></script>
+        <script src="{{ STATIC_URL }}bootstrap/js/bootstrap.js"></script>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <form action="" method="POST"> {% csrf_token %}
+        {{ form.non_field_errors }}
+        <div>
+            {{ form.name.errors }}
+            <label for="id_name">名称: </label>
+            {{ form.name }}
+        </div>
+        <div>
+            {{ form.date_start.errors }}
+            <label for="id_date_start">开始日期: </label>
+            {{ form.date_start }}
+        </div>
+        <div>
+            {{ form.date_end.errors }}
+            <label for="id_date_end">结束日期: </label>
+            {{ form.date_end }}
+        </div>
+        <div>
+            {{ form.term_type.errors }}
+            <label for="id_term_type">结束日期: </label>
+            {{ form.term_type }}
+        </div>
+
+
+      <tr>
+        <td colspan="2" align="right"><input type="submit" value="Create"/></td>
+      </tr>
+    </form>
+</body>
+</html>

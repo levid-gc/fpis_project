@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/kendo/jquery.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/main/main.js"></script>
+</head>
+<body>
+
+
+{% block content %}
+    <div class="container">
+        <h3>TODO:</h3>
+        <ul>
+            <li>Take out trash</li>
+        </ul>
+        <button class="btn get-more">Get More Todos</button>
+    </div>
+    <div class="container">
+        <h3>Add Todo</h3>
+        {% csrf_token %}
+        <div>
+            <label for="todo">
+                <input class="todo-item" type="text" placeholder="Todo Item" />
+            </label>
+            <button class="btn add-todo">Add Todo</button>
+        </div>
+    </div>
+
+{% endblock %}
+</body>
+</html>
